@@ -1,1 +1,3 @@
 # focusing-sounds
+I've writed focusing sounds app mainly becasue of educational reasons. At that time I've been learning C#, and I wanted to write my own project more advanced than "Hello world"-type program.
+Also I used web-based apps that generate(or play) white noise sounds, that helps me and many other people to stay calm, relax or just focus. So I thought why not write app that will do the same thing localy on my computer when I haven't got Internet connection. And this is a result of this thought.
