@@ -7,27 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NAudio;
-using NAudio.Wave;
+using System.Media;
 using System.IO;
 
 namespace Focusing_sounds
 {
     public partial class Form1 : Form
     {
-        //ustawienieaudio
-        IWavePlayer waveOutDevice;
-        AudioFileReader audioFileReader;
-
-        //nazwy dla ikony i menu ikony w trayu
+        //names for trayIcon and trayMenu
         private NotifyIcon trayIcon;
         private ContextMenu trayMenu;
 
         public Form1()
         {
             InitializeComponent();
-
-            waveOutDevice = new WaveOut();
 
             //hided window, not showing in app drawer
             this.WindowState = FormWindowState.Minimized;
@@ -36,28 +29,28 @@ namespace Focusing_sounds
             //name of the tray icon
             this.Text = "Focusing sounds";
 
-            //menu in tray
-            trayMenu = new ContextMenu();
-            trayMenu.MenuItems.Add("Cafe", OnPlay1);
-            trayMenu.MenuItems.Add("Rain", OnPlay2);
-            trayMenu.MenuItems.Add("Sea", OnPlay3);
-            trayMenu.MenuItems.Add("Stop", OnStop);
-            trayMenu.MenuItems.Add("About", AboutShow);
-            trayMenu.MenuItems.Add("Exit", OnExit);
-
-
-
-
             //creating icon in tray
             trayIcon = new NotifyIcon();
             trayIcon.Text = "Focusing sounds";
             trayIcon.Icon = new Icon(@"tray.ico", 40, 40);
 
+            //menu in tray
+            trayMenu = new ContextMenu();
+            trayMenu.MenuItems.Add("Cafe", OnPlay1);
+            trayMenu.MenuItems.Add("Rain", OnPlay2);
+            trayMenu.MenuItems.Add("Ocean", OnPlay3);
+            trayMenu.MenuItems.Add("Stop", OnStop);
+            trayMenu.MenuItems.Add("About", AboutShow);
+            trayMenu.MenuItems.Add("Exit", OnExit);
+
             //setting icon menu as trayMenu
             trayIcon.ContextMenu = trayMenu;
             //visibility icon in tray
             trayIcon.Visible = true;
+
         }
+
+        Player player = new Player();
 
         string aboutFile = File.ReadAllText(@"about.txt");
 
@@ -73,37 +66,22 @@ namespace Focusing_sounds
 
         private void OnPlay1(object sender, EventArgs e)
         {
-            string MP3_PATH = @"cafesounds.mp3";
-            waveOutDevice.Pause();
-            audioFileReader = new AudioFileReader(MP3_PATH);
-            waveOutDevice.Init(audioFileReader);
-            waveOutDevice.Play();
+            player.play_sound("cafe");
         }
 
         private void OnPlay2(object sender, EventArgs e)
         {
-            string MP3_PATH = @"rain.mp3";
-            waveOutDevice.Pause();
-            audioFileReader = new AudioFileReader(MP3_PATH);
-            waveOutDevice.Init(audioFileReader);
-            waveOutDevice.Play();
+            player.play_sound("rain");
         }
 
-        
         private void OnPlay3(object sender, EventArgs e)
         {
-            string MP3_PATH = @"sea.mp3";
-            waveOutDevice.Pause();
-            audioFileReader = new AudioFileReader(MP3_PATH);
-            waveOutDevice.Init(audioFileReader);
-            waveOutDevice.Play();
+            player.play_sound("ocean");
         }
-        
-
 
         private void OnStop(object sender, EventArgs e)
         {
-            waveOutDevice.Pause();
+            player.Stop();
         }
 
     }

@@ -55,6 +55,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -83,14 +84,14 @@
     <Content Include="about.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="cafesounds.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="Crisp_Ocean_Waves-Mike_Koenig-1486046376.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="rain.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="Rain_Background-Mike_Koenig-1681389445.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="sea.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="Restaurant Ambiance -SoundBible.com-628640170.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="tray.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
