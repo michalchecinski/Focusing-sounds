@@ -56,6 +56,7 @@ namespace Focusing_sounds
 
         private void OnExit(object sender, EventArgs e)
         {
+            trayIcon.Dispose();
             Application.Exit();
         }
 
